@@ -1,0 +1,45 @@
+
+# The log level used by the agent.
+# Available levels: debug/info/warn/error/fatal
+# default info
+log_level: debug
+
+# The method the agent will use to send data back to datadog
+# dogstatsd uses an agent running on another host to submit metrics
+# api api uses the api to submit data back to the datadog saas.
+# default: api
+output_method: api
+
+# The agent host, used only for dogstatsd submission
+agent_host: "127.0.0.1"
+# The agent port, used only for dogstatsd submission
+agent_port: 8125
+
+# The api key for api metric submission
+api_key: ""
+# The api key for api metric submission
+app_key: ""
+
+# The datadog site for api metric submission
+site: ""
+
+# Global tags to add to every metric submitted.
+tags:
+  - env:test
+
+# Configures the execution interval for each collection task
+schedules:
+  cpu: 10    # Collect CPU metrics every 10 seconds
+  memory: 10 # Collect Memory metrics every 10 seconds
+  disk: 30   # Collect Disk metrics every 30 seconds
+  network: 30 # Collect Network metrics every 30 seconds
+  uptime: 60 # Collect Uptime metrics every 60 seconds
+
+# Configures what resources to collect.
+include:
+  monitored_disks: # Example: Mount points to monitor
+    - /
+    - /var
+  network_interfaces: # Example: Network interfaces to monitor
+    - lo0
+    - net0
