@@ -104,6 +104,10 @@ A quick overview (see `deploy/conf.example.yaml` for full details):
 - `tags`: list of global tags (e.g., `env:prod`)
 - `schedules`: collection intervals per collector in seconds (e.g., `cpu: 10`, `memory: 10`, `disk: 30`, `network: 30`, `uptime: 60`)
 
+### Disabling a Collector
+
+To disable a collector from being executed, set the collector schedule to 0 or a nagative value!
+
 ## Running the agent
 - As a service (via SMF): see Service management below.
 - Manually (for debugging):
