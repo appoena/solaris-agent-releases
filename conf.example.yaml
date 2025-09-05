@@ -28,6 +28,7 @@ tags:
   - env:test
 
 # Configures the execution interval for each collection task
+# Setting collector schedule value to 0 or a nagative value, disables the collector entirely.
 schedules:
   cpu: 10    # Collect CPU metrics every 10 seconds
   memory: 10 # Collect Memory metrics every 10 seconds
