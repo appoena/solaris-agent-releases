@@ -105,6 +105,13 @@ install_manifest() {
   log "Run with svcadm svc:/$SERVICE_FMRI:default or bash run.sh"
 }
 
+
+ change_permissions() {
+  chmod +x /etc/appoena/solaris/agent.jar
+  chmod +x /etc/appoena/solaris/background_exec.sh
+  chmod +x /etc/appoena/solaris/run.sh
+ }
+
 main() {
   require_root
   prepare_fs

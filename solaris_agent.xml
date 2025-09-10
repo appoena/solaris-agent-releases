@@ -33,15 +33,15 @@
 
         <method_context>
             <method_environment>
-                <envvar name='PATH' value='/usr/sbin:/usr/bin:/usr/local/bin:/etc/appoena/solaris/agent.jar'/>
+                <envvar name='PATH' value='/usr/sbin:/usr/bin:/usr/local/bin'/>
             </method_environment>
         </method_context>
 
         <exec_method
                 type='method'
                 name='start'
-                exec='java -jar /etc/appoena/solaris/agent.jar'
-                timeout_seconds='300'>
+                exec='/etc/appoena/solaris/background_exec.sh'
+                timeout_seconds='60'>
             <!--
                 '&' symbol indicates that the service is a daemon.
             -->
@@ -51,7 +51,7 @@
                 type='method'
                 name='stop'
                 exec=':kill'
-                timeout_seconds='300'>
+                timeout_seconds='60'>
         </exec_method>
 
         <exec_method
@@ -59,19 +59,15 @@
                 name='refresh'
                 exec=':true'
                 timeout_seconds='60'>
-            <!--
-                'svcadm refresh :true' is a no-op
-            -->
         </exec_method>
 
         <property_group name='startd' type='framework'>
             <propval name='duration' type='astring' value='contract'/>
             <propval name='restart_on' type='astring' value='error'/>
-            <propval name='ignore_error' type='astring' value='false'/>
         </property_group>
         <property_group name='application' type='application'>
-            <propval name='start_timeout' type='count' value='300'/>
-            <propval name='stop_timeout' type='count' value='300'/>
+            <propval name='start_timeout' type='count' value='60'/>
+            <propval name='stop_timeout' type='count' value='60'/>
         </property_group>
         <instance name='default' enabled='false'/>
 
