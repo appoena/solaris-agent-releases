@@ -6,7 +6,7 @@ The installer does not build or compile code. It expects that the deployment art
 
 ## Contents
 - Prerequisites
-- Files in `deploy/`
+- Files in `deploy/` [Releases](https://github.com/appoena/solaris-agent-releases/releases)
 - Quick install (recommended)
 - Manual configuration (without installer)
 - Configuration file reference
@@ -20,7 +20,7 @@ The installer does not build or compile code. It expects that the deployment art
 
 ## Prerequisites
 - Solaris with SMF (Service Management Facility)
-- Java Runtime Environment (JRE) 11+ available on PATH
+- Java Runtime Environment (JRE) 8+ available on PATH
 - Root (or sufficient privileges) to install service and write to system directories
 
 ## Files in `deploy/`
@@ -71,10 +71,10 @@ If you prefer not to run `install.sh`, follow these steps to configure the agent
 
 3) Create your runtime configuration file:
 - The agent reads: `/etc/appoena/solaris/conf.yaml`
-- Start from the example and adjust values:
+- Start from the example and adjust any values:
   - `cp /etc/appoena/solaris/conf.example.yaml /etc/appoena/solaris/conf.yaml`
   - Edit `/etc/appoena/solaris/conf.yaml`
-  - Configure api-key and app-key
+  - Configure datadog Api and App Keys
 
 4) Install the SMF manifest:
 - `cp ./solaris_agent.xml /var/svc/manifest/appoena/solaris_agent.xml`
