@@ -23,6 +23,13 @@ app_key: ""
 # The datadog site for api metric submission
 site: ""
 
+# Enables tagging of solaris.process.* metrics with the process name.
+# This can cause extra billing due to metric cardinality.
+tag_process_metrics_with_process_names: false
+
+# Disables ssl verification 
+disable_ssl: false
+
 # Global tags to add to every metric submitted.
 tags:
   - env:test
